@@ -13,7 +13,7 @@ int main(){
 
     // leggo la sequenza di caratteri
     for(unsigned int i=0; i<n; i++){
-        v[i]=rand()%27+'a';
+        v[i]=rand()%26+'a';
         printf("%c\t",v[i]);
     }
 
@@ -22,12 +22,13 @@ int main(){
         outF = fopen("nuovo.txt", "w");
         printf("Non sono riuscito ad aprire il file vecchio.txt");
     } else {
-        outF = fopen("vecchio.txt", "w");
+        outF = fopen("vecchio.txt", "a");
     }
 
     for(unsigned int i=1; i<=n; i++){
         fprintf(outF, "%c\t", v[n-i]);
     }
 
-     return 0;
+    fclose(outF);
+    return 0;
 }
