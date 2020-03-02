@@ -20,15 +20,16 @@ int main(){
     // provo ad aprire il file vecchio.txt in caso contrario creo nuovo.txt
     if((outF = fopen("vecchio.txt", "r")) == NULL){
         outF = fopen("nuovo.txt", "w");
-        printf("Non sono riuscito ad aprire il file vecchio.txt");
+        printf("\n\nNon sono riuscito ad aprire il file vecchio.txt: stampo sul file nuovo.txt");
     } else {
         outF = fopen("vecchio.txt", "a");
+        printf("\n\nStampo sul file vecchio.txt");
     }
 
     for(unsigned int i=1; i<=n; i++){
         fprintf(outF, "%c\t", v[n-i]);
     }
-
+    printf("\n\nHo finito. Ora chiudo il file.\n");
     fclose(outF);
     return 0;
 }
